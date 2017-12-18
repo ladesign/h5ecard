@@ -8,7 +8,7 @@
     <title>丰联资讯 祝您圣诞快乐</title>
 </head>
 <body style="margin:0;padding:0;overflow:hidden;border:0">
-<img src="5a376223347a192f4d0b01c3.jpg" width="0" height="0" />
+<!-- <img src="5a376223347a192f4d0b01c3.jpg" width="0" height="0" /> -->
 
 
 
@@ -28,9 +28,9 @@
         "eventUrl": ""         // 上报事件统计的地址
     };
 </script>
-<script src="http://card.mugeda.com/scripts/config.js"></script>
+<!-- <script src="http://card.mugeda.com/scripts/config.js"></script>
 
-    <script defer src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script defer src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script> -->
     
 
 <script id="Mugeda_5a28db30347a1966a369a568">
@@ -406,6 +406,58 @@ Mugeda.Loader.prototype.start = function () {
     }
 })();
 
+
+
+
+(function(){
+        
+        function getWxShareData() {
+            var img = 'https://ladesign.github.io/h5ecard/cn/2017Xmas/5a376223347a192f4d0b01c3.jpg';
+            var title = "分享标题";
+            var desc = '分享详细介绍文字';
+            var url = window.location.href.replace(/([&|\?]{1})ticket=[\w\-]+(&?)/, '$1').replace(/\?$/, '');
+
+            // 这个页面hardcode写死了，就不用这样判断了
+            // if(!img){
+            //     var imgs = document.getElementsByTagName('IMG');
+            //     if(imgs.length){
+            //         img = imgs[0].src;
+            //     }
+            // }
+            
+            return {
+                'img_url' : img,
+                'title' : title,
+                'link' : url,
+                'desc' : desc
+            };
+        }
+        
+        var bindit =  function() {
+            // 发送给好友; 
+            WeixinJSBridge.on('menu:share:appmessage', function(){
+                WeixinJSBridge.invoke('sendAppMessage', getWxShareData(), function(r){});
+            });
+            // 分享到朋友圈;
+            WeixinJSBridge.on('menu:share:timeline', function(){
+                WeixinJSBridge.invoke('shareTimeline',getWxShareData(), function(r){});
+            });
+            // 分享到微博;
+            WeixinJSBridge.on('menu:share:weibo', function(){
+                var data = getWxShareData();
+                data = {
+                    url : data.link,
+                    content : '【' + data.title + '】' + ' ' + data.desc + ' ' +  data.link,  
+                    img_url : data.img_url
+                };
+                WeixinJSBridge.invoke('shareWeibo', data, function(r){});
+            });
+            // 分享到Facebook
+            WeixinJSBridge.on('menu:share:facebook',getWxShareData(), function(r){});
+        };
+        
+        document.addEventListener('WeixinJSBridgeReady', bindit, false);
+})();
 </script>
 
 
