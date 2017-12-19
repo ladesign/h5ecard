@@ -281,7 +281,7 @@ window['Mugeda']['Loader'] = function (dom, hasScript, _mrmcp) {
             loadRes(0, "mugeda_smart_renderer_core" + version + ".js", [], 0);
         
         loadRes(0, "mugeda_utils" + version + ".js", [0]);
-        loadRes(1, that.crid + ".js?publishTime=1513586038406", []);
+        loadRes(1, that.crid + ".js?publishTime=1513652570142", []);
         finalCallback = that.start.bind(that);
     }
 };
@@ -308,7 +308,7 @@ Mugeda.Loader.prototype.start = function () {
             Mugeda.data['id_' + this.crid].wt = _mrmcp['width'];
             Mugeda.data['id_' + this.crid].ht = _mrmcp['height'];
         }
-        Mugeda['startAnimation']("id_" + this.crid, false ? "actions_" + this.crid + ".js?publishTime=1513586038406" : "", a, this.resDir, this.name, null, this._mrmcp)
+        Mugeda['startAnimation']("id_" + this.crid, false ? "actions_" + this.crid + ".js?publishTime=1513652570142" : "", a, this.resDir, this.name, null, this._mrmcp)
     }
     else {
         Mugeda.creationToBeLoad = Mugeda.creationToBeLoad || [];
