@@ -7,13 +7,29 @@
   <meta name="Keywords" content="">
   <meta name="Description" content="">
   <title>轉址</title>
+  <script src="jquery.min.js"></script>
  </head>
  <body>
+
+
+<div id="autoclickme">
+	<a onclick="myFunction()">Onload Autoclick me !!</a>
+</div>
+
  <a href="play.html">Go</a>
  <br><br>
  <input type ="button" onclick="javascript:location.href='play.html'" value="Go"></input>
+
+
+
 <Script Language="JavaScript">
 //location.href= ('play.html');
+function myFunction() {
+ alert("Hello World");
+}
+$(document).ready(function () {
+ $('#autoclickme a').get(0).click();
+});
 </Script>
  </body>
 </html>
