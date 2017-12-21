@@ -119,7 +119,7 @@
 		<!-- Autoplay is <b>not</b> supported -->
 		<div class="mask"></div>
 		<div class="playicon" id="autoclickme">
-			<a onclick="myFunction('play.html')">GO-6</a>
+			<a onclick="myFunction('play.html')">Start</a>
 		</div>
 		<iframe id="playframe" src="" frameborder="0" width="100%"></iframe>
 	</div>
@@ -238,6 +238,8 @@ root = document.getElementsByTagName('html')[0];
 function myFunction(inputurl) {
 
 	//alert("iframe src="+inputurl);
+		$(".mask").hide();
+		$(".playicon").hide();
 
         if (document.getElementById){
 			document.getElementById("playframe").src=inputurl;
