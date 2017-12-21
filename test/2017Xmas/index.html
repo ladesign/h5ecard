@@ -95,8 +95,11 @@
     </div>
     
 <Script Language="JavaScript">
+
+$(document).ready(function () {
+	$("#prompt").hide();
 	// 橫屏時提示「請使用豎屏訪問！」
- window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+ 	window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
         if (window.orientation === 180 || window.orientation === 0){
             $("#playwrap").show();
             $("#prompt").hide();
@@ -106,6 +109,7 @@
             $("#prompt").show();
         }
     }, false);
+});
 
 // Detect autoplay
 // ---------------
@@ -222,6 +226,9 @@ function myFunction(inputurl) {
 
 
 }
+
+
+
 /*
 $(document).ready(function () {
  $('#autoclickme a').get(0).click();
