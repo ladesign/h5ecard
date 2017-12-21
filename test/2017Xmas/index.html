@@ -23,17 +23,7 @@
 
 
 <script >
-	// 移動端網頁強制橫豎屏展示
-	var screenOrientation = new screenOrientation({ 
-		mode:'portrait',//portrait(豎屏)、landscape(橫屏) 
-		//id:'wrap', 
-		init:function(){ 
-			// alert('初始化成功'); 
-		}, 
-		landback:function(){ 
-			alert("旋轉成功"); 
-		} 
-	}); 
+
 
 	$(document).ready(function() {
 		var topframeheight;
@@ -65,8 +55,8 @@
 
 
 <!-- 不支援Autoplay時顯示此區塊 ，觸發onclick事件後播放背景音樂並在iframe載入動畫頁 -->
-<div class="support nope">
-	<!-- Autoplay is <b>not</b> supported -->
+<div class="support nope" id="playwrap">
+	Autoplay is <b>not</b> supported
 	<div id="autoclickme" style="position:absolute">
 		<a onclick="myFunction('play.html')">GO!!</a>
 	</div>
@@ -75,7 +65,17 @@
 
 
 <Script Language="JavaScript">
-
+	// 移動端網頁強制橫豎屏展示
+	var screenOrientation = new screenOrientation({ 
+		mode:'portrait',//portrait(豎屏)、landscape(橫屏) 
+		id:'playwrap', 
+		init:function(){ 
+			// alert('初始化成功'); 
+		}, 
+		landback:function(){ 
+			alert("旋轉成功"); 
+		} 
+	}); 
 
 // Detect autoplay
 // ---------------
