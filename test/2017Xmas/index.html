@@ -52,7 +52,7 @@
 <!-- 不支援Autoplay，觸發touchstart事件後播放背景音樂 -->
 <div class="support nope">Autoplay is <b>not</b> supported
 	<div id="autoclickme" style="position:absolute">
-		<a onclick="myFunction()">GO!!</a>
+		<a onclick="myFunction('play.html')">GO!!</a>
 	</div>
 	<iframe id="playframe" src="" frameborder="1" width="100%"></iframe>
 </div>
@@ -160,13 +160,11 @@ root = document.getElementsByTagName('html')[0];
 //網頁載入時自動觸發onclick事件
 
 function myFunction(inputurl) {
-	alert("onclick 1");
-	var audiofile = new Audio('5a3347c392b5795d6835f52f.mp3');
-	audiofile.play();
 
-        if (document.getElementById&&displaymode==0){
+	alert("iframe src="+inputurl);
+        if (document.getElementById){
 			document.getElementById("playframe").src=inputurl;
-		}else if (document.all&&displaymode==0){
+		}else if (document.all){
 			document.all.external.src=inputurl;
 		}else {
 			if (!window.win2||win2.closed){
@@ -176,6 +174,11 @@ function myFunction(inputurl) {
 				win2.focus();
 			}
 		}
+
+	var audiofile = new Audio('5a3347c392b5795d6835f52f.mp3');
+	audiofile.play();
+
+
 
 }
 /*
