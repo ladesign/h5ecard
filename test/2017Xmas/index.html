@@ -38,9 +38,9 @@
 	.autoplay .nope { display:none; }/*隱藏不支援autoplay的div內容*/
 	.no-autoplay .yep { display:none; } /*隱藏支援autoplay的div內容*/
 
-	.prompt_wrap{ width:100%; height:100%;position:absolute;left: 0px;top: 0px;z-index:100;}
-        .lightbox{width:100%; height:100%;z-index:101; background-color:red;filter:alpha(Opacity=20);-moz-opacity:0.2;opacity: 0.2; position:absolute; top:0px; left:0px;}
-        .prompt_neirong{ color:#fff;width:353px;height:153px;border:solid 1px #f7dd8c;position:absolute;z-index:105;left: 123px;top: 123px;}
+	.prompt_wrap{width:100%; height:100%;position:absolute;left: 0px;top: 0px;z-index:100;}
+        .prompt_mask{width:100%; height:100%;z-index:101; background-color:#000;filter:alpha(Opacity=20);-moz-opacity:0.2;opacity: 0.2; position:absolute; top:0px; left:0px;}
+        .prompt_neirong{width:100%; height:100%;color:#fff;vertical-align: middle; text-align:center; position:absolute;z-index:105;left:0px;top: 0px;}
   </style>
 
 
@@ -81,14 +81,14 @@
 <div class="support nope" id="playwrap">
 	<!-- Autoplay is <b>not</b> supported -->
 	<div id="autoclickme" style="position:absolute">
-		<a onclick="myFunction('play.html')">GO-1!!</a>
+		<a onclick="myFunction('play.html')">GO-2!!</a>
 	</div>
 	<iframe id="playframe" src="" frameborder="0" width="100%"></iframe>
 </div>
 
 <!--<div id="prompt">請使用豎屏訪問！</div>-->
     <div class="prompt_wrap" id="prompt">
-        <div class="lightbox"></div>
+        <div class="prompt_mask"></div>
         <div class="prompt_neirong">           
             	請使用豎屏訪問！
         </div>
