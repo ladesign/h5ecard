@@ -7,21 +7,34 @@
     <meta charset="utf-8" />
     <title>丰联资讯 祝您圣诞快乐</title>
 
-  <script src="modernizr.js"></script>
-  <script src="jquery.min.js"></script> 
+	<script src="screenOrientation.js"></script><!-- 移動端網頁強制橫豎屏展示 -->
+	<script src="modernizr.js"></script><!-- 用來在<html>標籤加入html5的class -->
+	<script src="jquery.min.js"></script> 
 
   <style>
 	.support { line-height:50px; font-size:30px; color:white; }
 	.nope { background:red; }
 	.yep { background:green; }
 
-	.autoplay .nope { display:none; }
-	.no-autoplay .yep { display:none; } 
+	.autoplay .nope { display:none; }/*隱藏不支援autoplay的div內容*/
+	.no-autoplay .yep { display:none; } /*隱藏支援autoplay的div內容*/
   </style>
 
 
 
 <script >
+	// 移動端網頁強制橫豎屏展示
+	var screenOrientation = new screenOrientation({ 
+		mode:'portrait',//portrait(豎屏)、landscape(橫屏) 
+		//id:'wrap', 
+		init:function(){ 
+			// alert('初始化成功'); 
+		}, 
+		landback:function(){ 
+			alert("旋轉成功"); 
+		} 
+	}); 
+
 	$(document).ready(function() {
 		var topframeheight;
 		var iframeheight;
@@ -44,17 +57,20 @@
  </head>
  <body>
 
-<!-- 支援Autoplay -->
+<!-- 支援Autoplay時顯示此區塊，並轉址至動畫頁 -->
+
 <div class="support yep">
-	Autoplay is supported
+	<!-- Autoplay is supported-->
 </div>
 
-<!-- 不支援Autoplay，觸發touchstart事件後播放背景音樂 -->
-<div class="support nope">Autoplay is <b>not</b> supported
+
+<!-- 不支援Autoplay時顯示此區塊 ，觸發onclick事件後播放背景音樂並在iframe載入動畫頁 -->
+<div class="support nope">
+	<!-- Autoplay is <b>not</b> supported -->
 	<div id="autoclickme" style="position:absolute">
 		<a onclick="myFunction('play.html')">GO!!</a>
 	</div>
-	<iframe id="playframe" src="" frameborder="1" width="100%"></iframe>
+	<iframe id="playframe" src="" frameborder="0" width="100%"></iframe>
 </div>
 
 
@@ -165,7 +181,7 @@ function myFunction(inputurl) {
 		}
 
 	var music = new Audio('5a3347c392b5795d6835f52f.mp3');
-
+	//循環播放
 	music.addEventListener('ended', function() {
 		this.currentTime = 0;
 		this.play();
