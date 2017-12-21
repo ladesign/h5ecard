@@ -11,12 +11,12 @@
  </head>
  <body>
 
-<div id="hidden_audio" style="display:none">
-<audio id="audio" style="display:none" controls src="5a3347c392b5795d6835f52f.mp3">
-</audio>
-</div>
+<!-- <div id="hidden_audio" style="display:none">
+	<audio id="audio" style="display:none" controls src="5a3347c392b5795d6835f52f.mp3">
+	</audio>
+</div> -->
+
 <div id="autoclickme">
-	<!-- <a onclick="myFunction()">Onload Autoclick me !!</a> -->
 	<a onclick="myFunction()">Onload Autoclick me !!</a>
 </div>
 
@@ -31,16 +31,17 @@
 //location.href= ('play.html');
 
 //網頁載入時自動觸發onclick事件
-/*
+
 function myFunction() {
  alert("Hello World 2");
-	//var audiofile = new Audio('5a3347c392b5795d6835f52f.mp3');
-	//audiofile.play();
+	var audiofile = new Audio('5a3347c392b5795d6835f52f.mp3');
+	audiofile.play();
 }
 $(document).ready(function () {
  $('#autoclickme a').get(0).click();
 });
-*/
+
+/*
 function myFunction() {
 	alert("Hello World 2");
 	$("#audio").play();
@@ -49,6 +50,7 @@ $(document).ready(function () {
 	$("#audio").load();
 	$('#autoclickme a').get(0).click();
 });
+*/
 </Script>
  </body>
 </html>
