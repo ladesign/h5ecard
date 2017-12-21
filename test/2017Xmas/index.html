@@ -12,9 +12,9 @@
 	<script src="jquery.min.js"></script> 
 
   <style>
-	.support { line-height:50px; font-size:30px; color:white; }
-	.nope { background:red; }
-	.yep { background:green; }
+	.support { line-height:50px; font-size:12px; color:white; }
+	/*.nope { background:red; }
+	.yep { background:green; }*/
 
 	.autoplay .nope { display:none; }/*隱藏不支援autoplay的div內容*/
 	.no-autoplay .yep { display:none; } /*隱藏支援autoplay的div內容*/
@@ -56,7 +56,7 @@
 
 <!-- 不支援Autoplay時顯示此區塊 ，觸發onclick事件後播放背景音樂並在iframe載入動畫頁 -->
 <div class="support nope" id="playwrap">
-	Autoplay is <b>not</b> supported
+	<!-- Autoplay is <b>not</b> supported -->
 	<div id="autoclickme" style="position:absolute">
 		<a onclick="myFunction('play.html')">GO!!</a>
 	</div>
