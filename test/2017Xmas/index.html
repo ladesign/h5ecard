@@ -107,16 +107,21 @@ root = document.getElementsByTagName('html')[0];
       clearTimeout(removeVideoTimeout);
       // remove video element from page
       body.removeChild(video);
+
+		//支援Autoplay，直接轉動畫頁
+		//location.href='play.html';
+		alert("play.html");
+
+
     }, false);
 
-    //支援Autoplay，直接轉動畫頁
-	//location.href='play.html';
-	alert("play.html");
+
 
   } catch(e) {
 	 //不支援Autoplay
     console.error('[AUTOPLAY-ERROR]', e);
 	
+	alert("Autoplay is not supported");	
 
   }
   
