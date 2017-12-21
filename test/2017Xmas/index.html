@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
 	
 <!-- uc強制豎屏 -->
-<meta name="screen-orientation" content="portrait">
+<!-- <meta name="screen-orientation" content="portrait"> -->
 <!-- QQ強制豎屏 -->
-<meta name="x5-orientation" content="portrait">
+<!-- <meta name="x5-orientation" content="portrait"> -->
 <!-- UC強制全屏 -->
-<meta name="full-screen" content="yes">
+<!-- <meta name="full-screen" content="yes"> -->
 <!-- QQ強制全屏 -->
-<meta name="x5-fullscreen" content="true">
+<!-- <meta name="x5-fullscreen" content="true"> -->
 <!-- UC應用模式 -->
-<meta name="browsermode" content="application">
+<!-- <meta name="browsermode" content="application"> -->
 <!-- QQ應用模式 -->
-<meta name="x5-page-mode" content="app">
+<!-- <meta name="x5-page-mode" content="app"> -->
 <!-- windows phone 點擊無高光 -->
-<meta name="msapplication-tap-highlight" content="no">
+<!-- <meta name="msapplication-tap-highlight" content="no"> -->
 <!-- 適應移動端end -->
 
     <meta charset="utf-8" />
@@ -37,6 +37,10 @@
 
 	.autoplay .nope { display:none; }/*隱藏不支援autoplay的div內容*/
 	.no-autoplay .yep { display:none; } /*隱藏支援autoplay的div內容*/
+
+	.prompt_wrap{ width:100%; height:100%;position:absolute;left: 0px;top: 0px;z-index:100;}
+        .lightbox{width:100%; height:100%;z-index:101; background-color:red;filter:alpha(Opacity=20);-moz-opacity:0.2;opacity: 0.2; position:absolute; top:0px; left:0px;}
+        .prompt_neirong{ color:#fff;width:353px;height:153px;border:solid 1px #f7dd8c;position:absolute;z-index:105;left: 123px;top: 123px;}
   </style>
 
 
@@ -81,8 +85,15 @@
 	</div>
 	<iframe id="playframe" src="" frameborder="0" width="100%"></iframe>
 </div>
-<div id="prompt">請使用豎屏訪問！</div>
 
+<!--<div id="prompt">請使用豎屏訪問！</div>-->
+    <div class="prompt_wrap" id="prompt">
+        <div class="lightbox"></div>
+        <div class="prompt_neirong">           
+            	請使用豎屏訪問！
+        </div>
+    </div>
+    
 <Script Language="JavaScript">
 	// 橫屏時提示「請使用豎屏訪問！」
  window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
