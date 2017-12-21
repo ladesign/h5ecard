@@ -43,7 +43,7 @@ $(document).ready(function () {
 });
 */
 
-
+/*
 function myFunction() {
 	alert("Hello World 3");
 	document.getElementById('audio').play();
@@ -52,6 +52,26 @@ $(document).ready(function () {
 	document.getElementById('audio').load();
 	$('#autoclickme a').get(0).click();
 });
+*/
+
+window.onload = function () { 
+
+     var bot = document.getElementById('autoclickme');
+     bot.addEventListener('touchstart', function () { 
+		 alert('touchstart'); 
+			var audiofile = new Audio('5a3347c392b5795d6835f52f.mp3');
+			audiofile.play();
+		 }); 
+     creatTouchstartEventAndDispatch(bot); 
+
+     function creatTouchstartEventAndDispatch (el) { 
+          var event = document.createEvent('Events');
+          event.initEvent('touchstart', true, true); 
+          el.dispatchEvent(event); 
+     } 
+
+}
+
 
 </Script>
  </body>
