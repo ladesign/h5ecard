@@ -134,16 +134,24 @@
     
 <Script Language="JavaScript">
 
+var startplay;
+startplay=false;
+
+
 $(document).ready(function () {
 	$("#prompt").hide();
-	// 橫屏時提示「請使用豎屏訪問！」
+	// 監聽螢幕旋轉，橫屏時提示「請使用豎屏訪問！」
  	window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
-        if (window.orientation === 180 || window.orientation === 0){
+        if (window.orientation === 180 || window.orientation === 0){//豎屏時隱藏題示
             $("#playwrap").show();
-            $(".mask").hide();
+            if (startplay){
+            	$(".mask").hide();	
+            }else{
+            	$(".mask").show();	
+            }            
             $("#prompt").hide();
         }
-        if (window.orientation === 90 || window.orientation === -90 ){
+        if (window.orientation === 90 || window.orientation === -90 ){//橫屏時顯示題示
             $("#playwrap").hide();
             $(".mask").show();
             $("#prompt").show();
@@ -235,10 +243,10 @@ root = document.getElementsByTagName('html')[0];
 // 轉址
 //location.href= ('play.html');
 
-//網頁載入時自動觸發onclick事件
+//觸發onclick事件
 
 function myFunction(inputurl) {
-
+	startplay=true;
 	//alert("iframe src="+inputurl);
 		$(".mask").hide();
 		$(".playicon").hide();
