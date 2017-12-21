@@ -29,15 +29,14 @@
 <!-- 不支援Autoplay，觸發touchstart事件後播放背景音樂 -->
 <div class="support nope">Autoplay is <b>not</b> supported
 	<div id="autoclickme">
-		<a onclick="myFunction()" target="playframe">GO!!</a>
+		<a onclick="myFunction()">Onload Autoclick me !!</a>
 	</div>
 </div>
 
-<iframe id="playframe" src="" frameborder="0" width="100%"></iframe>
 
- <!-- <a href="play.html">Go</a>
+ <a href="play.html">Go</a>
  <br><br>
- <input type ="button" onclick="javascript:location.href='play.html'" value="Go"></input> -->
+ <input type ="button" onclick="javascript:location.href='play.html'" value="Go"></input>
 
 
 
@@ -108,15 +107,9 @@ root = document.getElementsByTagName('html')[0];
       // remove video element from page
       body.removeChild(video);
     }, false);
-
-    //支援Autoplay，直接轉動畫頁
-	location.href='play.html';
-
+    
   } catch(e) {
-	 //不支援Autoplay
     console.error('[AUTOPLAY-ERROR]', e);
-	
-
   }
   
   return false;
