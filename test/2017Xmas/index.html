@@ -50,7 +50,7 @@
 		top:0px; 
 		left:0px;
 		}	
-	.playwrap{width:100%; height:100%;position:absolute;left: 0px;top: 0px;z-index:50;}
+	.playwrap{width:100%; height:100%;position:absolute;left: 0px;top: 0px;z-index:99;}
 
         .playicon{
         	width:100px; 
@@ -140,10 +140,12 @@ $(document).ready(function () {
  	window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
         if (window.orientation === 180 || window.orientation === 0){
             $("#playwrap").show();
+            $(".mask").hide();
             $("#prompt").hide();
         }
         if (window.orientation === 90 || window.orientation === -90 ){
             $("#playwrap").hide();
+            $(".mask").show();
             $("#prompt").show();
         }
     }, false);
