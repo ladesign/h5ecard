@@ -16,6 +16,7 @@
 </audio>
 </div>
 <div id="autoclickme">
+	<!-- <a onclick="myFunction()">Onload Autoclick me !!</a> -->
 	<a onclick="myFunction()">Onload Autoclick me !!</a>
 </div>
 
@@ -46,7 +47,9 @@ function myFunction() {
 }
 $(document).ready(function () {
 	$("#audio").load();
-	$('#autoclickme a').get(0).click();
+	//$('#autoclickme a').get(0).click();
+	$("#autoclickme a").on("tap",function(){
+	});
 });
 </Script>
  </body>
