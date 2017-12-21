@@ -77,15 +77,24 @@
 <div class="support nope" id="playwrap">
 	<!-- Autoplay is <b>not</b> supported -->
 	<div id="autoclickme" style="position:absolute">
-		<a onclick="myFunction('play.html')">GO-1!!</a>
+		<a onclick="myFunction('play.html')">GO-3!!</a>
 	</div>
 	<iframe id="playframe" src="" frameborder="0" width="100%"></iframe>
 </div>
-
+<div id="page">請使用豎屏訪問！</div>
 
 <Script Language="JavaScript">
-	// 移動端網頁強制橫豎屏展示
-
+	// 橫屏時提示「請使用豎屏訪問！」
+ window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+        if (window.orientation === 180 || window.orientation === 0){
+            $("#page").show();
+            $("#playwrap").hide();
+        }
+        if (window.orientation === 90 || window.orientation === -90 ){
+            $("#page").hide();
+            $("#playwrap").show();
+        }
+    }, false);
 
 // Detect autoplay
 // ---------------
