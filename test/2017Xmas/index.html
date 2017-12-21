@@ -12,7 +12,7 @@
  <body>
 
 <div id="hidden_audio" style="display:none">
-	<audio id="audio" style="display:none" controls src="5a3347c392b5795d6835f52f.mp3">
+	<audio  id="audio" style="display:none" playsinline autoplay loop controls src="5a3347c392b5795d6835f52f.mp3">
 	</audio>
 </div>
 
@@ -43,7 +43,7 @@ $(document).ready(function () {
 });
 */
 
-/*
+
 function myFunction() {
 	alert("Hello World 3");
 	document.getElementById('audio').play();
@@ -52,8 +52,10 @@ $(document).ready(function () {
 	document.getElementById('audio').load();
 	$('#autoclickme a').get(0).click();
 });
-*/
 
+
+//網頁載入時自動觸發touchstart事件
+/*
 window.onload = function () { 
 
      var bot = document.getElementById('autoclickme');
@@ -71,7 +73,7 @@ window.onload = function () {
      } 
 
 }
-
+*/
 
 </Script>
  </body>
