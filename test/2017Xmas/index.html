@@ -11,70 +11,44 @@
  </head>
  <body>
 
-<div id="hidden_audio" style="display:none">
-	<audio  id="audio" style="display:none" playsinline autoplay loop controls src="5a3347c392b5795d6835f52f.mp3">
-	</audio>
+<!-- 音樂 start-->
+<div class="musicinfo" id="musicinfo">
+    <audio id="musicid" src="5a3347c392b5795d6835f52f.mp3" preload="preload" autoplay="autoplay"  loop="loop">您的瀏覽器不支持 audio標籤。</audio>
+    <img class="music on roate" src="play_icon.png">
 </div>
+<!-- 音樂 end-->
+<script type="text/javascript">
+	// 音樂播放
+	function autoPlayMusic() {
+	    // 自動播放音樂效果，解決瀏覽器或者APP自動播放問題
+	    function musicInBrowserHandler() {
+	        musicPlay(true);
+	        document.body.removeEventListener('touchstart', musicInBrowserHandler);
+	    }
+	    document.body.addEventListener('touchstart', musicInBrowserHandler);
 
-<div id="autoclickme">
-	<a onclick="myFunction()">Onload Autoclick me !!</a>
-</div>
-
- <a href="play.html">Go</a>
- <br><br>
- <input type ="button" onclick="javascript:location.href='play.html'" value="Go"></input>
-
-
-
-<Script Language="JavaScript">
-// 轉址
-//location.href= ('play.html');
-
-//網頁載入時自動觸發onclick事件
-/*
-function myFunction() {
-	alert("Hello World 2");
-	var audiofile = new Audio('5a3347c392b5795d6835f52f.mp3');
-	audiofile.play();
-}
-
-$(document).ready(function () {
- $('#autoclickme a').get(0).click();
-});
-*/
-
-
-function myFunction() {
-	alert("Hello World 3");
-	document.getElementById('audio').play();
-}
-$(document).ready(function () {
-	document.getElementById('audio').load();
-	$('#autoclickme a').get(0).click();
-});
+	    // 自動播放音樂效果，解決微信自動播放問題
+	    function musicInWeixinHandler() {
+	        musicPlay(true);
+	        document.addEventListener("WeixinJSBridgeReady", function () {
+	            musicPlay(true);
+	        }, false);
+	        document.removeEventListener('DOMContentLoaded', musicInWeixinHandler);
+	    }
+	    document.addEventListener('DOMContentLoaded', musicInWeixinHandler);
+	}
+	function musicPlay(isPlay) {
+	    var audio = document.getElementById('musicid');
+	    if (isPlay && audio.paused) {
+	        audio.play();
+	    }
+	    if (!isPlay && !audio.paused) {
+	        audio.pause();
+	    }
+	}
+	autoPlayMusic();
+</script>
 
 
-//網頁載入時自動觸發touchstart事件
-/*
-window.onload = function () { 
-
-     var bot = document.getElementById('autoclickme');
-     bot.addEventListener('touchstart', function () { 
-		 alert('touchstart'); 
-			var audiofile = new Audio('5a3347c392b5795d6835f52f.mp3');
-			audiofile.play();
-		 }); 
-     creatTouchstartEventAndDispatch(bot); 
-
-     function creatTouchstartEventAndDispatch (el) { 
-          var event = document.createEvent('Events');
-          event.initEvent('touchstart', true, true); 
-          el.dispatchEvent(event); 
-     } 
-
-}
-*/
-
-</Script>
  </body>
 </html>
